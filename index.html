@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Trivia Game</title>
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel= "stylesheet" type= "text/css" href= "assets/css/style.css">
+
+</head>
+<body>
+<!--Title of the game-->
+    <div class= "container">
+    	
+    	<header>
+    		<h1>NINTENDO TRIVIA</h1>
+    	</header>
+    
+      <div> 
+          <button id="start" class="btn btn-danger operator" value=start><h1 style="padding:20px">Start</h1></button>
+      </div>    	
+
+
+      <div id= "quiz">
+      
+          <!-- Countdown Timer-->
+          <div class= "row"> 
+          <h3>Time Remaining:</h3><h3 id= "display">1:20</h3>
+          </div>
+
+        
+
+      	<!--Question_1-->
+        <h3>When was Nintendo founded?</h3>
+        <form id="questionOne">
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="1"> 1986
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="2"> 1889
+            <!--If this input selected output tue, else false-->
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="3"> 1973
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="4"> 1968
+          </label>
+        </form>
+
+      	<!--Question_2-->
+
+        <h3>What game franchise did Shigeru Miyamoto not work on?</h3>
+        <form id="questionTwo">
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="1"> Mario
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="2"> The Legend of Zelda
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="3"> Donkey Kong
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="4"> Pokemon
+            <!--If this input selected output tue, else false-->
+          </label>
+        </form>
+
+      	<!--Question_3-->
+
+        <h3>In Ocarina of Time where do you obtain the hookshot item?</h3>
+        <form id="questionThree">
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="1"> The Water Temple
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="2"> The Graveyard
+            <!--If this input selected output tue, else false--> 
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="3"> Kokiri Forest 
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="4"> Lord Jabu-Jabu's Belly
+          </label>
+        </form>
+
+      	<!--Question_4-->
+        <h3>Which of the following is not a Mario sport game?</h3>
+        <form id="questionFour">
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="1"> Mario Hoops 3-on-3
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="2"> Mario Golf
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="3"> Super Mario Strikers
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="4"> Mario Super Boxing
+            <!--If this input selected output tue, else false-->
+          </label>
+        </form>
+
+      	<!--Question_5-->
+
+        <h3>What is the code name for the next Nintendo Console?</h3>
+        <form id="questionFive">
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">Wii 2
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">NinEx
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">NX
+            <!--If this input selected output tue, else false-->
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">Wii X
+          </label>
+        </form>
+      </div>  
+  </div>
+
+
+  <div id="done">
+    <h2>All Done!</h2>
+    <p class="correct"></p>
+    <p class="incorrect"></p>
+    <p class="unanswered"></p> 
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>
