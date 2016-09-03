@@ -1,12 +1,12 @@
 
-
     // make variables global to the runtime of our application
     var audio, timer, time, correctAnswers, incorrectAnswers, unanswered;
     var audio = new Audio('https://p.scdn.co/mp3-preview/ed5a443bc86176135ebca8a114f66f4d814d4c90');
     //hide the quiz until user clocks on the start button
     $("#quiz").hide();
+    //hide the quiz until clicked
     $("#done").hide();
-    
+    //once clicked start the visual timer and the countdown
     $("#start").on("click", function(){
         	$("#start").hide();
         	$("#quiz").show();
@@ -15,63 +15,92 @@
             setTimeout(timeUp, 1000 * 80);
             //make the timer start 1:20 seconds by recalling function 
     });
-    //play music while playing trivia game
-    
-    $('input[type="radio"]:checked').each(function() {
-
-        if (this.value > 0 && this.value <= 2) {
-           // do something if the value is less than zero and below or equal to two
-        }else if (this.value > 2) {
-           // do something else if the value is greater than two
+    //declare the value of the variables that will be displayed to the user in the end 
+    var correctAnswers=0;
+    var incorrectAnswers=0;
+    var unanswered=5;
+    //get the radio input value and compare the value to find
+    //out if it is correct ou incorrect or  unaswered
+    function getRadioValue(theRadioGroup){
+        var elements = document.getElementsByName(theRadioGroup);
+        for (var i = 0, l = elements.length; i < l; i++)
+        {
+            if (elements[i].checked)
+            {
+                return elements[i].value;
+            }
         }
+    };
+    //testing if value is gotten from the radio value
+    var selected = getRadioValue("oneAnswer");
+    console.log(selected);
+
+   /* $("input[name='oneAnswer']:checked").val()(function(){
+        if (this === "correct"){
+            correctAnswers++;
+        },
+        if else(this === "incorrect"){
+            incorrectAnswers++
+        },
+        if else{
+            unanswered--
+        },
+    });
+    
+    $("input[name='twoAnswer']:checked").val()(function(){
+        if (this === "correct"){
+            correctAnswers++;
+        },
+        if else(this === "incorrect"){
+            incorrectAnswers++
+        },
+        if else{
+            unanswered--
+        },
     });
 
-    //create an object answer key, with key objects for each individual 
-   //question, Question 1 should be something specific and the value should 
-   //be the question answer. and name it the answer then do a checker to 
-   // compare the radio clicked value to the answer.
-   var answerKey =
-   {
-        "#questionFoundation":
-        {
-            "wrongYear1": "1986",
-            "correctYear": "1889",
-            "wrongYear2": "1973",
-            "wrongYear2": "1968",
-        }
-        "#questionMiyamoto":
-        {
-            "worked1": "Mario",
-            "worked2": "The Legend of Zelda",
-            "worked3": "Donkey Kong", 
-            "didntWork": "pokemon",
-        }
-        "#questionZelda":
-        {
-            "wrongLocation1": "The Water Temple",
-            "correctLocation": "The Graveyard",
-            "wrongLocation2": "Kokiri Forest",
-            "wrongLocation3": "Lord Jabu-Jabu's Belly",
-        }
-        "#questionMarioSport":
-        {
-            "realSport1": "Mario Hoops 3-on-3",
-            "realSport2": "Mario Golf",
-            "realSport3": "Super Mario Strikers",
-            "fakeSport": "Super Mario Boxing",
-        }
-        "#questionNext":
-        {
-            "fakeConsole1": "Wii 2",
-            "fakeConsole2": "Nin Ex",
-            "realConsole": "NX",
-            "fakeConsole3": "Wii X",
-        }
-   }
+    $("input[name='threeAnswer']:checked").val()(function(){
+        if (this === "correct"){
+            correctAnswers++;
+        },
+        if else(this === "incorrect"){
+            incorrectAnswers++
+        },
+        if else{
+            unanswered--
+        },
+    });
 
+    $("input[name='fourAnswer']:checked").val()(function(){
+        if (this === "correct"){
+            correctAnswers++;
+        },
+        if else(this === "incorrect"){
+            incorrectAnswers++
+        },
+        if else{
+            unanswered--
+        },
+    });
 
+    $("input[name='fiveAnswer']:checked").val()(function(){
+        if (this === "correct"){
+            correctAnswers++;
+        },
+        if else(this === "incorrect"){
+            incorrectAnswers++
+        },
+        if else{
+            unanswered--
+        },
+    });
 
+    $('.correct').html("Correct:"+ correctAnswers);
+    $('.incorrect').html("Incorrect:"+ incorrectAnswers);
+    $('.unanswered').html("Unanswered:"+ unanswered);
+*/
     //timer object
+    //will display the time left to the user
     var timer = {
         time: 80,
         reset: function(){
@@ -109,13 +138,13 @@
             return minutes + ":" + seconds;
         }
     };
-
+    //once the time is up the page will change to the resuts 
     function timeUp(){
 
     // Once 80 seconds pass, time is up! hide quiz display results.
         $("#quiz").hide();
         $("#done").show();
 
-    }
+    };
 
 

@@ -1,8 +1,17 @@
 body{
 	
-	background-color: red;
+	background: url(../images/QuizBackground.jpg);
 	color: white;
 	text-align: center;
-	
+}
+
+#quiz, #done{
+
+	 background: rgb(30, 30, 30); /* Fall-back for browsers that don't
+                                    support rgba */
+    background: rgba(30, 30, 30, .75);
+
+    padding: 50px;
+
 }
 
