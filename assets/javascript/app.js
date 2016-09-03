@@ -1,7 +1,7 @@
 
     // make variables global to the runtime of our application
-    var audio, timer, time, correctAnswers, incorrectAnswers, unanswered;
-    var audio = new Audio('https://p.scdn.co/mp3-preview/ed5a443bc86176135ebca8a114f66f4d814d4c90');
+    var audio, timer, time, correctAnswers, incorrectAnswers, unanswered, selected;
+    var audio = new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_powerup.wav');
     //hide the quiz until user clocks on the start button
     $("#quiz").hide();
     //hide the quiz until clicked
@@ -21,87 +21,53 @@
     var unanswered=5;
     //get the radio input value and compare the value to find
     //out if it is correct ou incorrect or  unaswered
+
+    //function goes through the the radio input to check 
+    //if it is clicked and what the value is 
+
     function getRadioValue(theRadioGroup){
         var elements = document.getElementsByName(theRadioGroup);
         for (var i = 0, l = elements.length; i < l; i++)
         {
+            
             if (elements[i].checked)
             {
                 return elements[i].value;
             }
+
         }
     };
-    //testing if value is gotten from the radio value
-    var selected = getRadioValue("oneAnswer");
-    console.log(selected);
 
-   /* $("input[name='oneAnswer']:checked").val()(function(){
-        if (this === "correct"){
-            correctAnswers++;
-        },
-        if else(this === "incorrect"){
-            incorrectAnswers++
-        },
-        if else{
-            unanswered--
-        },
-    });
-    
-    $("input[name='twoAnswer']:checked").val()(function(){
-        if (this === "correct"){
-            correctAnswers++;
-        },
-        if else(this === "incorrect"){
-            incorrectAnswers++
-        },
-        if else{
-            unanswered--
-        },
+    //getting value of the clicked radio button 
+    $("input").on("click", function(){
+        var audioCoin = new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_coin.wav');
+        audioCoin.play();
+        var selected = getRadioValue($(this).attr("name"));
+        console.log(selected);
+        if (selected === "correct"){ correctAnswers++; unanswered--}
+        else if(selected === "incorrect"){ incorrectAnswers++; unanswered--}
+        
+        $('#correct').html("Correct: "+correctAnswers);
+        $('#incorrect').html("Incorrect: "+incorrectAnswers); 
+        $('#unanswered').html("unanswered: " + unanswered);
     });
 
-    $("input[name='threeAnswer']:checked").val()(function(){
-        if (this === "correct"){
+    /*function calculate(){
+        if (selected === "correct"){
             correctAnswers++;
-        },
-        if else(this === "incorrect"){
+        }
+        else if(selected === "incorrect"){
             incorrectAnswers++
-        },
-        if else{
+        }
+        else if{
             unanswered--
-        },
-    });
-
-    $("input[name='fourAnswer']:checked").val()(function(){
-        if (this === "correct"){
-            correctAnswers++;
-        },
-        if else(this === "incorrect"){
-            incorrectAnswers++
-        },
-        if else{
-            unanswered--
-        },
-    });
-
-    $("input[name='fiveAnswer']:checked").val()(function(){
-        if (this === "correct"){
-            correctAnswers++;
-        },
-        if else(this === "incorrect"){
-            incorrectAnswers++
-        },
-        if else{
-            unanswered--
-        },
-    });
-
-    $('.correct').html("Correct:"+ correctAnswers);
-    $('.incorrect').html("Incorrect:"+ incorrectAnswers);
-    $('.unanswered').html("Unanswered:"+ unanswered);
-*/
+        }
+    };*/
+   
     //timer object
     //will display the time left to the user
     var timer = {
+
         time: 80,
         reset: function(){
             timer.time = 80;

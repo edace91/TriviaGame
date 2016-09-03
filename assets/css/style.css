@@ -4,6 +4,12 @@ body{
 	color: white;
 	text-align: center;
 }
+#logo { 
+
+	color: black;
+	padding: 20px;
+
+ }
 
 #quiz, #done{
 
